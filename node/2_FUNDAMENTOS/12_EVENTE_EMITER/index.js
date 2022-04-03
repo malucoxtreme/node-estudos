@@ -1,13 +1,14 @@
-const EventEmitter = require('events')
-const eventEmitter = new EventEmitter()//da uma olhada sobre o comando 'news'
 //chamamos o core module EventEmitter 'events'
+const EventEmitter = require('events')
+//core module 'events' para o EventEmitter.
+const eventEmitter = new EventEmitter()//da uma olhada sobre o comando 'news'
 //estanciamos ele numa várivarel 
 eventEmitter.on('start', () => {
   console.log('durante')
 })
-//aqui agora com a gente criar um evento com o metodo 
-//variaval.on('nome do evento'), variavel onde estanciamos o modulo
-//e com uma arros function, criamos o bloco de codigo do evento
+//aqui agora criaremos um evento com o metódo 
+//variavel.on('nome do evento'), variavél onde estanciamos o modulo
+//e com uma arow function, criamos o bloco de codigo do evento
 console.log('antes')
 
 eventEmitter.emit('start')
@@ -17,5 +18,6 @@ eventEmitter.emit('start')
 
 console.log('depois')
 
-//verificando que o codigo é sempre exevutado 
+//verificando que o codigo é sempre exedutado 
+//de baixo para cima.
 //de baixo para cima.

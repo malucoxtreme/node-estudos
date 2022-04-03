@@ -1,7 +1,12 @@
 //modulo coremodule readline para ler entrada de usuários
 //padrão criar uma variável como o nome do modulo
-//podemos usar as funções a medida que importamos assim como podemmos
-//importa-las isoladamente, veja o examplo abaixo onde usamos a função
+//podemos usar as funções a medida que importamos assim como podemos
+//importa-las isoladamente:
+/*import createInterface({
+  input: process.stdin,
+  output: process.stdout,
+}) from readline.*/ 
+//veja o examplo abaixo onde usamos a função
 //createInterface para criar uma interface de entrada de dados.
 const readline = require('readline').createInterface({
   input: process.stdin,
