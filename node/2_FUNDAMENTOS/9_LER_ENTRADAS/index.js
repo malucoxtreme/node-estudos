@@ -1,19 +1,15 @@
-//modulo coremodule readline para ler entrada de usuários
-//padrão criar uma variável como o nome do modulo
+//Módulo coremodule readline para ler entrada de usuários
+//padrão é criar uma variável como o nome do modulo
 //podemos usar as funções a medida que importamos assim como podemos
 //importa-las isoladamente:
-/*import createInterface({
-  input: process.stdin,
-  output: process.stdout,
-}) from readline.*/ 
 //veja o examplo abaixo onde usamos a função
 //createInterface para criar uma interface de entrada de dados.
 const readline = require('readline').createInterface({
   input: process.stdin,
   output: process.stdout,
 })
-//já concantenemos o objeto com o metodo  do modulo readline .createInterface()
-//porem é possivel declarar outra variavel apenas para conter esse metodo
+//já concantenemos a variavél com o metodo do modulo readline .createInterface()
+//porem é possivel declarar outra variavel apenas para conter esse metódo
 //exemplo:
 //const exemplo = readline.createInterface({
 //  input: porcess.stdin,
@@ -31,4 +27,4 @@ readline.question('qual a sua linguagem preferida?', (language) =>{
 //no caso o escopo dela está como paramentro de readline.question()
 //finalizando com readline.close().
 //preciso  estudar mais sobre o js puro mas acredito que language é
-//a variavel que recebe o valor da pergunta, ou o obejto que recebe o valor.
+//a variavel que recebe o valor da pergunta, ou o objeto que recebe o valor.

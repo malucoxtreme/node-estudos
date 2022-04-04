@@ -5,13 +5,13 @@ const minimist = require('minimist')
 
 //interno
 const soma = require('./soma').soma
-//prestar atenção que aqui colocamos o caminho do arquivo com
+//prestar atenção que aqui colocamos o path do arquivo com
 //o modulo interno
 const args = minimist(process.argv.slice(2))
 
-const a = parseInt(args['a'])
+const a = parseInt(args['x'])
 //metod parseInt utilizado para converter strings em numeros inteiros
-const b = parseInt(args['b'])
+const b = parseInt(args['y'])
 
 soma(a, b)
 

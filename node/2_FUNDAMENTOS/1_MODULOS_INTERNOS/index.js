@@ -4,11 +4,11 @@ const myModule = require('./meu_modulo')
 //e como parametro colocamos a localização do arquivo
 const add = myModule.soma
 //aqui declaramos outra constante atribuindo 
-// a constante onde demos require no nosso modulo
-//e chamando o metodo que declaramos dentro do
+// a constante onde chamamos require do nosso modulo
+//e utilizando o metodo que declaramos dentro do
 //comando modulo.exports
 
-add(2,3)
+add(null, null)
 add(5,10)
 
 //testes

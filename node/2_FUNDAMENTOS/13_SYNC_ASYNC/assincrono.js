@@ -1,12 +1,15 @@
 const fS = require('fs')
 
 console.log('inicio')
-
-fS.writeFile('arquivo.txt', 'teste', function(err){
-  setTimeout(function(){
-    console.log('Arquivo criado com sucesso!')
-  }, 2000) //tempo de execução do arquivo 
-})
+//metodo writeFile, que é um metodo do core module fs
+//e recebe como parametro o nome do arquivo,
+//e o conteudo do arquivo, e uma função de callback
+//que é executada quando o arquivo for criado.
+fS.writeFile('arquivo.txt', 'teste', err => {
+    setTimeout(err => {
+      console.log('Arquivo criado com sucesso!')
+    }, 2000) //tempo de execução do arquivo 
+  })
 console.log('fim')
 //o arquivo.txt será criado depois de 2 segundos.
 //de forma assincrona. o node vai executando o codigo

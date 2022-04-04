@@ -2,13 +2,9 @@ const fs = require('fs') //fs = file system
 console.log('inicio')
 
 fs.writeFileSync('arquivo.php', 'teste')
-// fs.writeFile um metódo que força o cogido a esperar sua execução
+// fs.writeFileSync um metódo que força o codigo a esperar sua execução
 // para executar a proxima linha de codigo.
 console.log('fim')
-
-
-
-
 
 //geralmente em js, temos duas opções de execução de codigo
 //syncrono e assincrono.

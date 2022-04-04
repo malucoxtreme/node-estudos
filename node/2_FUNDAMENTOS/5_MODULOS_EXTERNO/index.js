@@ -5,14 +5,13 @@
 const minimist = require('minimist')
 const argv = minimist(process.argv.slice(2));
 //process.argv é um metodo que captura os argumentos em arrays e
-//tendo como primeiro obejto o nodejs path e o segundo o arquivo .js
-//nesse caso usamos o metodo .slice para capturarmos a partir do 3 objeto no
-//indce 2, o slice fornece uma copia rasa de determinado array a partir de certo
-//indice.
+//tendo como primeiro objeto o nodejs path e o segundo o arquivo .js
+//nesse caso usamos o metodo .slice para capturarmos a partir do 3 objeto
+//que é o primeiro argumento.
 console.log(argv)
 const a = argv['nome']
 const b = argv['profi']
-//o metodo argv['argumento'] aqui foi usado para usar um argumento especificado
-//ao invés o nome da váriavel.
+//o metodo argv['argumento'] aqui foi usado para usar um argumento 
+//especificado ao invés do nome da váriavel.
 
 console.log(`o nome desse degraçado é ${a} e a profissão é ${b}.`);
