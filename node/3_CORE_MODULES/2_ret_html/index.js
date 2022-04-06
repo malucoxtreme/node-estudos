@@ -11,3 +11,10 @@ const server = http.createServer((req, res) => {
 server.listen(port, () => {
   console.log(`servidor na porta ${port}`)
 })
+
+//aqui o programa está retornando um html e um status code 200
+// na verade eu não sei quando esse status code vai ser usado
+// mas o status code 200 é o padrão para sucesso
+//res.setHeader é usado para definir o tipo de conteudo que será enviado
+//nesse caso o conteudo será text/html
+//res.end é usado para enviar o conteudo
