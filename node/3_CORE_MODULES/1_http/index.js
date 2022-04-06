@@ -1,7 +1,6 @@
 const http = require('http')
 const inquirer = require('inquirer')
 
-const port = 3000
 
 inquirer.prompt([
   {name: 'p1', message: 'porta do servidor: '},]).then((answers) => {
