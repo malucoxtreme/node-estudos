@@ -1,2 +1,2 @@
-# node estudos
- apenas para fazer um rep dos meu códigos de estudo
+# node-pratice
+ just for do an repo to my learning codes.
