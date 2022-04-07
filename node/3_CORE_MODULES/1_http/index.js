@@ -4,22 +4,19 @@ const inquirer = require('inquirer')
 
 inquirer.prompt([
   {name: 'p1', message: 'porta do servidor: '},]).then((answers) => {
-
   const server = http.createServer((req, res) => {
     res.write('Hello World') 
-    res.end('és finito')
-  })
+    res.end('és finito')})
   let port = parseInt(answers.p1)
   
  
   if(port >= 1 && port <= 65536 ){
       server.listen(port, () => {
-      console.log(`servidor na porta ${port}`)}) 
-    } else if(port < 1 || port > 65536){
-      console.log('A porta deve ser um número entre 1 e 65536')
-    } else {
-      console.log('A porta é inválida')
-    }
+      console.log(`servidor na porta ${port}`)})} 
+      else if(port < 1 || port > 65536){
+      console.log('A porta deve ser um número entre 1 e 65536')} 
+      else {
+      console.log('A porta é inválida')}
   }).catch((error) => {console.log(error)})
 
     

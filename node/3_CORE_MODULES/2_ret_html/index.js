@@ -1,6 +1,6 @@
 const http = require('http')
 
-const port = 3000
+const port = 80
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200
@@ -15,6 +15,7 @@ server.listen(port, () => {
 //aqui o programa está retornando um html e um status code 200
 // na verade eu não sei quando esse status code vai ser usado
 // mas o status code 200 é o padrão para sucesso
-//res.setHeader é usado para definir o tipo de conteudo que será enviado
-//nesse caso o conteudo será text/html
+//res.setHeader é usado para definir o 
+//tipo de conteudo que será enviado 'Content-Type'
+//nesse caso o conteudo será text/html 'text/html'
 //res.end é usado para enviar o conteudo

@@ -1,4 +1,3 @@
-const { get } = require('http')
 const url = require('url')
 const adrress = 'https://www.meusite.com.br/catalog?p=cadeira'
 const parsedUrl = new url.URL(adrress)
