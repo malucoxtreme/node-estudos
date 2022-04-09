@@ -25,3 +25,4 @@ fs.stat('arquivo.txt', (err, stats) => {
 
   }
 )  
+// metodos do modulo fs

@@ -3,9 +3,12 @@ const fs = require('fs')
 const { url } = require('inspector')
 
 require('http').createServer((req, res) => {
-  const fileName = require('url').parse(req.url, true).path.substring(1)
-  if(fileName.includes('html') && fs.existsSync(fileName)){
-    fs.readFile(fileName, (err, data) => {
+  let htmlFile = require('url').parse(req.url, true).path.substring(1)
+  if(htmlFile == ''){
+    htmlFile = 'index.html'
+   }
+  if(htmlFile.includes('html') && fs.existsSync(htmlFile)){
+    fs.readFile(htmlFile, (err, data) => {
       res.writeHead(200, {'Content-Type': 'text/html'})
       res.write(data)
       res.end()
@@ -16,8 +19,8 @@ require('http').createServer((req, res) => {
       res.write(data)
       res.end()})
     }
-}).listen(80, () => {
-  console.log(`servidor na porta 80`)
+}).listen(8080, () => {
+  console.log(`servidor na porta 80 duas vez`)
 })
 
 
