@@ -56,12 +56,12 @@ function readAccount(accountName){
 
 
 // go back to operation
-function goBack(dynaFunc){
+function goBack(dynaFunc, whereICameFrom){
     inquirer.prompt([
     {
       type: 'list',
       name: 'action',
-      message: 'Deseja voltar?',
+      message: 'Deseja Sair?',
       choices: ['Sim', 'Não']
     }
   ]).then((answers) => {
@@ -73,7 +73,9 @@ function goBack(dynaFunc){
       showAccounts()
     } else if (dynaFunc == 'getAccount'){
       getAccount()
-    }    
+    } else if (dynaFunc == 'Não', whereICameFrom){
+      getAccount('deposit')
+    }  
   }).catch((err) => console.log(err))
 }
 
@@ -115,7 +117,7 @@ function showAccounts(){
   console.log(accounts)
   return goBack('showAccounts')
 }
-
+//just to get account
 function getAccount(whereICameFrom){
   inquirer.prompt([
     {
@@ -123,8 +125,11 @@ function getAccount(whereICameFrom){
       message:'Qual conta você deseja acessar?'
     }
   ]).then((answers) => {
-    const accountFile = answers.accountName + '.json'
-    const existAcc = fs.existsSync(`accounts/${accountFile}`)
+    var accountFile = answers.accountName + '.json'
+    console.log(accountFile)
+    var existAcc = fs.existsSync(`accounts/${accountFile}`)
+    console.log(existAcc)
+    console.log(whereICameFrom)
     if (existAcc == true && whereICameFrom == 'balance'){
       console.log(chalk.bgGreen.black(`Conta encontrada\n\rSaldo: ${readAccount(accountFile).balance}` ))
       return goBack('operation')
@@ -137,9 +142,9 @@ function getAccount(whereICameFrom){
         deposit(accountFile)
         return true
     } else {
-       console.log(chalk.bgRed.white('Conta não encontrada'))  
-       goBack('getAccount')
-       return false
+       console.log(chalk.bgRed.white('Conta não encontrada'))
+       console.log(whereICameFrom)  
+       return goBack('getAccount' , whereICameFrom)
     }}).catch((err) => console.log(err))
   
 }
@@ -178,21 +183,22 @@ function withDraw(account){
     subAmount(answers.amount, account)
     }).catch((err) => console.log(err))
 }
+
 function subAmount(subAmount, account){
-  const floatedAmount = parseFloat(readAccount(account).balance) - parseFloat(subAmount)
+  const balance = readAccount(account).balance
+  const floatedAmount = parseFloat(balance) - parseFloat(subAmount)
   const stringedAmount = {"balance": floatedAmount }
-  console.log(stringedAmount)
-  if (subAmount >= 0 ){
+  if (subAmount > 0 && subAmount <= balance){
     fs.writeFileSync(`accounts/${account}`, JSON.stringify(stringedAmount), (err) => {
       console.log(err)
     })
-    console.log(chalk.green('Deposito realizado com sucesso!'))
+    console.log(chalk.green('Saque realizado com sucesso!'))
     goBack('operation')
-  }  else {
+  } else {
     console.log(chalk.bgRed.white('Valor inválido'))
     return goBack('getAccount')
   }
 }
 
-
+operation()
 
